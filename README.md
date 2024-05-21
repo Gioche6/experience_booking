@@ -14,7 +14,7 @@ This is a Flask web application for booking local experiences. Users can create 
 
 ## Project Structure
 
-'''experience_booking/
+```experience_booking/
 │
 ├── app/
 │ ├── init.py
@@ -42,7 +42,7 @@ This is a Flask web application for booking local experiences. Users can create 
 ├── config.py
 ├── requirements.txt
 ├── run.py
-└── README.md
+└── README.md ```
 
 markdown
 Copy code
@@ -79,16 +79,15 @@ pip install -r requirements.txt
 Set up the database:
 
 bash
-Copy code
+```
 flask db init
 flask db migrate -m "Initial migration."
 flask db upgrade
-Run the application:
+Run the application:```
 
-bash
-Copy code
+```
 flask run
-Access the application:
+Access the application:```
 
 Open your web browser and go to http://127.0.0.1:5000.
 
