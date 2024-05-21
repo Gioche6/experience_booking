@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Experiences</h1>
+<div class="row">
+    {% for experience in experiences %}
+    <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+            <img src="{{ url_for('static', filename='images/' ~ experience.image_filename) }}" class="card-img-top" alt="{{ experience.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ experience.title }}</h5>
+                <p class="card-text">{{ experience.description[:100] }}...</p>
+                <p class="card-text">Price: £{{ experience.price }}</p>
+                <a href="{{ url_for('experience.experience_detail', id=experience.id) }}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <img src="{{ url_for('static', filename='images/' ~ experience.image_filename) }}" class="card-img-top" alt="{{ experience.title }}">
+    <div class="card-body">
+        <h1 class="card-title">{{ experience.title }}</h1>
+        <p class="card-text">{{ experience.description }}</p>
+        <p class="card-text">Price: £{{ experience.price }}</p>
+        <p class="card-text">Posted by: {{ experience.author.username }} on {{ experience.date_posted.strftime('%Y-%m-%d') }}</p>
+        <form action="{{ url_for('experience.like_experience', id=experience.id) }}" method="POST">
+            <button type="submit" class="btn btn-primary">Like ({{ experience.likes|length }})</button>
+        </form>
+        <form action="{{ url_for('experience.show_interest', id=experience.id) }}" method="POST">
+            <button type="submit" class="btn btn-secondary">Show Interest</button>
+        </form>
+    </div>
+</div>
+
+<div class="comments mt-4">
+    <h2>Comments</h2>
+    <form method="POST" action="{{ url_for('experience.experience_detail', id=experience.id) }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.comment.label(class="form-control-label") }}
+            {{ form.comment(class="form-control", rows=3) }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    <ul class="list-group mt-4">
+        {% for comment in experience.comments %}
+        <li class="list-group-item">
+            <strong>{{ comment.author.username }}</strong> on {{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}:
+            <p>{{ comment.body }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

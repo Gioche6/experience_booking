@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Local Experience Booking</h1>
+    <p class="lead">Discover and book unique local experiences in the UK.</p>
+    <hr class="my-4">
+    <p>Explore our wide range of experiences from guided tours, workshops, adventure activities, and more!</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('experience.list_experiences') }}" role="button">Browse Experiences</a>
+</div>
+{% endblock %}
