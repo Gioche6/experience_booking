@@ -1,5 +1,4 @@
-markdown
-Copy code
+
 # Experience Booking Application
 
 This is a Flask web application for booking local experiences. Users can create events, comment on them, show interest, and like the events. The application supports user authentication and provides a clean, responsive interface using Bootstrap.
@@ -15,7 +14,7 @@ This is a Flask web application for booking local experiences. Users can create 
 
 ## Project Structure
 
-experience_booking/
+'''experience_booking/
 │
 ├── app/
 │ ├── init.py
